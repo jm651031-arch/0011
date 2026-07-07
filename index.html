@@ -3,111 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中華健言社100期會外會｜活動報名</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<title>中華健言社100期會外會 報名</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Noto Sans TC",sans-serif;
+    font-family:"Microsoft JhengHei",sans-serif;
 }
 
 body{
     background:#fff7ef;
-    color:#444;
-    padding:20px;
+    color:#333;
 }
 
 .container{
-    max-width:500px;
-    margin:auto;
+    max-width:480px;
+    margin:20px auto;
+    padding:18px;
+}
+
+.card{
     background:#fff;
     border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
     overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 .header{
     background:linear-gradient(135deg,#ff9800,#ffb74d);
-    color:#fff;
+    color:white;
+    padding:24px 20px;
     text-align:center;
-    padding:35px 25px;
 }
 
 .header h1{
-    font-size:28px;
+    font-size:26px;
     margin-bottom:10px;
 }
 
-.header h2{
-    font-size:20px;
-    font-weight:500;
+.header p{
+    line-height:1.8;
+    font-size:15px;
 }
 
-.info{
+.form{
     padding:22px;
-    background:#fffaf5;
-    border-bottom:1px solid #eee;
-    line-height:1.9;
-}
-
-.info strong{
-    color:#ef6c00;
-}
-
-form{
-    padding:25px;
-}
-
-.form-group{
-    margin-bottom:20px;
 }
 
 label{
     display:block;
-    margin-bottom:8px;
-    font-weight:700;
-    color:#e67e22;
+    margin-top:16px;
+    margin-bottom:6px;
+    font-weight:bold;
+    color:#ef6c00;
 }
 
-input,
-select{
+input,select{
     width:100%;
-    padding:14px;
-    border:2px solid #ffd7a5;
+    padding:13px;
+    border:1px solid #ddd;
     border-radius:10px;
     font-size:16px;
-    transition:.25s;
+    outline:none;
+    transition:.3s;
 }
 
 input:focus,
 select:focus{
-    outline:none;
     border-color:#ff9800;
-    box-shadow:0 0 8px rgba(255,152,0,.2);
+    box-shadow:0 0 8px rgba(255,152,0,.3);
 }
 
 .note{
-    font-size:13px;
     color:#777;
-    margin-top:6px;
+    font-size:13px;
+    margin-top:5px;
 }
 
 .radio-group{
     display:flex;
-    gap:18px;
-    margin-top:5px;
+    gap:20px;
+    margin-top:8px;
 }
 
 .radio-group label{
     display:flex;
     align-items:center;
-    gap:8px;
-    font-weight:500;
-    color:#444;
+    gap:6px;
+    color:#333;
+    font-weight:normal;
+    margin:0;
 }
 
 .radio-group input{
@@ -116,13 +103,13 @@ select:focus{
 
 button{
     width:100%;
-    border:none;
+    margin-top:28px;
+    padding:15px;
     background:#ff9800;
     color:white;
-    padding:16px;
+    border:none;
     border-radius:12px;
     font-size:18px;
-    font-weight:bold;
     cursor:pointer;
     transition:.3s;
 }
@@ -131,64 +118,74 @@ button:hover{
     background:#f57c00;
 }
 
-.footer{
+button:disabled{
+    background:#bbb;
+    cursor:not-allowed;
+}
+
+#msg{
+    margin-top:18px;
     text-align:center;
-    padding:18px;
-    font-size:13px;
-    color:#999;
-}
-
-@media(max-width:480px){
-
-.header h1{
-    font-size:24px;
-}
-
-.header h2{
-    font-size:18px;
-}
-
+    font-weight:bold;
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="container">
 
+<div class="card">
+
 <div class="header">
-<h1>🎉 中華健言社</h1>
-<h2>100 期會外會活動報名</h2>
+<h1>🎉 中華健言社100期會外會</h1>
+
+<p>
+📅 2026/10/10（六）09:00–16:00
+</p>
+
+<p>
+📍 新城風糖休閒園區
+</p>
+
+<p>
+💰 會員550元／非會員700元（含保險）
+</p>
+
 </div>
 
-<div class="info">
-<div><strong>📅 日期：</strong>2026／10／10（六）09:00–16:00</div>
-<div><strong>📍 地點：</strong>新城風糖休閒園區</div>
-<div><strong>💰 費用：</strong>會員 550 元／非會員 700 元（含保險）</div>
-</div>
+<div class="form">
 
-<form>
+<form id="signupForm">
 
-<div class="form-group">
 <label>姓名</label>
-<input type="text" placeholder="請輸入姓名" required>
-</div>
+<input type="text" id="name" required>
 
-<div class="form-group">
 <label>手機</label>
-<input type="tel" placeholder="09xxxxxxxx" required>
-</div>
+<input
+type="tel"
+id="phone"
+maxlength="10"
+pattern="09[0-9]{8}"
+placeholder="09xxxxxxxx"
+required>
 
-<div class="form-group">
 <label>身分證字號</label>
-<input type="text" placeholder="請輸入身分證字號" required>
-<div class="note">※ 僅供保險投保使用</div>
+<input
+type="text"
+id="id"
+maxlength="10"
+placeholder="A123456789"
+required>
+
+<div class="note">
+※ 僅供保險投保使用
 </div>
 
-<div class="form-group">
 <label>所屬社團</label>
-<select required>
-<option value="">請選擇社團</option>
+
+<select id="club" required>
+<option value="">請選擇</option>
 <option>諄言社</option>
 <option>三重社</option>
 <option>三峽社</option>
@@ -198,9 +195,7 @@ button:hover{
 <option>中壢社</option>
 <option>湖口社</option>
 </select>
-</div>
 
-<div class="form-group">
 <label>餐點</label>
 
 <div class="radio-group">
@@ -217,17 +212,82 @@ button:hover{
 
 </div>
 
-</div>
+<button id="submitBtn" type="submit">
+送出報名
+</button>
 
-<button type="submit">立即報名</button>
+<div id="msg"></div>
 
 </form>
 
-<div class="footer">
-中華健言社 100 期會外會｜期待您的參與
 </div>
 
 </div>
+
+</div>
+
+<script>
+
+const GAS_URL="https://script.google.com/macros/s/AKfycbwR_ksLUnWWpEWdUgcCxqoLVtxMaeAXv8qObYmZoICZDxxPLNbugmpVfmIjC8OiDvyT/exec";
+
+document.getElementById("signupForm").addEventListener("submit",async function(e){
+
+    e.preventDefault();
+
+    const btn=document.getElementById("submitBtn");
+    const msg=document.getElementById("msg");
+
+    btn.disabled=true;
+    btn.innerText="送出中...";
+    msg.innerHTML="";
+
+    const data={
+        name:document.getElementById("name").value.trim(),
+        phone:document.getElementById("phone").value.trim(),
+        id:document.getElementById("id").value.trim(),
+        club:document.getElementById("club").value,
+        meal:document.querySelector("input[name='meal']:checked").value
+    };
+
+    try{
+
+        const res=await fetch(GAS_URL,{
+            method:"POST",
+            headers:{
+                "Content-Type":"text/plain;charset=utf-8"
+            },
+            body:JSON.stringify(data)
+        });
+
+        const result=await res.json();
+
+        if(result.success){
+
+            msg.style.color="green";
+            msg.innerHTML="✅ 報名成功！";
+
+            document.getElementById("signupForm").reset();
+
+        }else{
+
+            msg.style.color="red";
+            msg.innerHTML="❌ "+result.message;
+
+        }
+
+    }catch(err){
+
+        msg.style.color="red";
+        msg.innerHTML="❌ 無法連線，請稍後再試";
+
+    }
+
+    btn.disabled=false;
+    btn.innerText="送出報名";
+
+});
+
+</script>
 
 </body>
 </html>
